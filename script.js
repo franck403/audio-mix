@@ -11,7 +11,6 @@ function getLocalStream() {
   navigator.mediaDevices
     .getUserMedia(constraints)
     .then((stream) => {
-      window.localStream = stream; // A
       window.localAudioMic1.srcObject = stream; // B
       window.localAudioMic1.autoplay = true; // C
     })
@@ -21,15 +20,12 @@ function getLocalStream() {
   navigator.mediaDevices
     .getUserMedia(constraints1)
     .then((stream) => {
-      window.localStream = stream; // A
       window.localAudioMic2.srcObject = stream; // B
       window.localAudioMic2.autoplay = true; // C
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
     });
-  window.localAudioMic2.play
-  window.localAudioMic1.play
 }
 
 function gotDevices(deviceInfos) {
