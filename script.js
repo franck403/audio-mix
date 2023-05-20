@@ -71,7 +71,7 @@ audioInputSelect1.onchange = getLocalStream;
 audioInputSelect2.onchange = getLocalStream;
 
 function changeValue1(value) {
-  document.getElementById("vol_range1").innerHTML = value
+  document.getElementById("vol_rangep1").innerHTML = value
   if (value == 100) {
     window.localAudioMic1.volume = 1
   } else {
@@ -81,7 +81,7 @@ function changeValue1(value) {
 
 
 function changeValue2(value) {
-  document.getElementById("vol_range2").innerHTML = value
+  document.getElementById("vol_rangep2").innerHTML = value
   if (value == 100) {
     window.localAudioMic2.volume = 1
   } else {
