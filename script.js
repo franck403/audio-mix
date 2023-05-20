@@ -88,3 +88,29 @@ function changeValue2(value) {
     window.localAudioMic2.volume = Number("0." + value)
   }
 }
+
+function changeState1() {
+  if (window.localAudioMic1.volume == 1) {
+    window.localAudioMic1.volume = 0
+  } else {
+    var value = document.getElementById("vol_range1").value
+    if (value == 100) {
+      window.localAudioMic1.volume = 1
+    } else {
+      window.localAudioMic1.volume = Number("0." + value)
+    }
+  }
+}
+
+function changeState2() {
+  if (window.localAudioMic2.volume == 1) {
+    window.localAudioMic2.volume = 0
+  } else {
+    var value = document.getElementById("vol_range2").value
+    if (value == 100) {
+      window.localAudioMic2.volume = 1
+    } else {
+      window.localAudioMic2.volume = Number("0." + value)
+    }
+  }
+}
