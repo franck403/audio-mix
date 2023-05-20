@@ -6,17 +6,20 @@
         background-color: red;
         display:block;
     }
+    input[type="range"] {
+        height: 34px;
+    }
 </style>
 <div>
     <audio id="localAudioMic1"></audio>
     <input type="range" id="vol_range1" min="0" max="100" oninput="changeValue1(this.value)">
     <label id="vol_range1">Volume </label>
+    <select id="audioSource1"></select>
 </div>
 <div>
     <audio id="localAudioMic2"></audio>
     <input type="range" id="vol_range2" name="vol" min="0" max="100" oninput="changeValue2(this.value)">
     <label id="vol_range2">Volume </label>
+    <select id="audioSource2"></select>
 </div>
-<select id="audioSource1"></select>
-<select id="audioSource2"></select>
 <script src="script.js"></script>
