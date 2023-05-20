@@ -10,3 +10,6 @@ function getLocalStream() {
       console.error(`you got an error: ${err}`);
     });
 }
+
+
+getLocalStream()
