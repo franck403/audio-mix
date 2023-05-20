@@ -64,6 +64,9 @@ navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 const audioInputSelect1 = document.querySelector('select#audioSource1');
 const audioInputSelect2 = document.querySelector('select#audioSource2');
+
+window.localAudioMic1.volume = 1
+window.localAudioMic2.volume = 1
 audioInputSelect1.onchange = getLocalStream;
 audioInputSelect2.onchange = getLocalStream;
 
