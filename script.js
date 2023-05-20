@@ -64,7 +64,7 @@ function gotDevices(deviceInfos) {
   getLocalStream()
 }
 
-navigator.mediaDevices.enumerateDevices({ video: false, audio: true }).then(gotDevices);
+navigator.mediaDevices.enumerateDevices().then(gotDevices);
 
 const audioInputSelect1 = document.querySelector('select#audioSource1');
 const audioInputSelect2 = document.querySelector('select#audioSource2');
