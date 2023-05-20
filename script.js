@@ -66,3 +66,22 @@ const audioInputSelect1 = document.querySelector('select#audioSource1');
 const audioInputSelect2 = document.querySelector('select#audioSource2');
 audioInputSelect1.onchange = getLocalStream;
 audioInputSelect2.onchange = getLocalStream;
+
+function changeValue1(value) {
+  document.getElementById("vol_range1").innerHTML = value
+  if (value == 100) {
+    window.localAudioMic1.volume = value
+  } else {
+    window.localAudioMic1.volume = Number("0." + value)
+  }
+}
+
+
+function changeValue2(value) {
+  document.getElementById("vol_range2").innerHTML = value
+  if (value == 100) {
+    window.localAudioMic2.volume = value
+  } else {
+    window.localAudioMic2.volume = Number("0." + value)
+  }
+}

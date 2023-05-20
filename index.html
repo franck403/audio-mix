@@ -1,5 +1,13 @@
-<audio id="localAudioMic1"></audio>
-<audio id="localAudioMic2"></audio>
+<div>
+    <audio id="localAudioMic1"></audio>
+    <input type="range" id="vol_range1" min="0" max="100" oninput="changeValue1(this.value)">
+    <label id="vol_range1">Volume </label>
+</div>
+<div>
+    <audio id="localAudioMic2"></audio>
+    <input type="range" id="vol_range2" name="vol" min="0" max="100" oninput="changeValue2(this.value)">
+    <label id="vol_range2">Volume </label>
+</div>
 <select id="audioSource1"></select>
 <select id="audioSource2"></select>
 <script src="script.js"></script>
