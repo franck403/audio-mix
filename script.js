@@ -90,7 +90,7 @@ function changeValue2(value) {
 }
 
 function changeState1() {
-  if (window.localAudioMic1.volume == 1) {
+  if (window.localAudioMic1.volume != 0) {
     window.localAudioMic1.volume = 0
   } else {
     var value = document.getElementById("vol_range1").value
@@ -103,7 +103,7 @@ function changeState1() {
 }
 
 function changeState2() {
-  if (window.localAudioMic2.volume == 1) {
+  if (window.localAudioMic2.volume != 0) {
     window.localAudioMic2.volume = 0
   } else {
     var value = document.getElementById("vol_range2").value
