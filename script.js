@@ -43,8 +43,8 @@ function gotDevices(deviceInfos) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     const option2 = document.createElement('option');
-    const option3 = docment.createElement('option');
-    const option4 = docment.createElement('option');
+    const option3 = document.createElement('option');
+    const option4 = document.createElement('option');
     option3.value = "select_mic"
     option4.value = "select_mic"
     audioInputSelect2.appendChild(option3);
