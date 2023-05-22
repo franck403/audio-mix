@@ -4,7 +4,7 @@ function handlerFunction(stream,num) {
     rec1.ondataavailable = e => {
       audioChunks1.push(e.data);
       if (rec1.state == "inactive") {
-        let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+        let blob = new Blob(audioChunks1, { type: 'audio/mpeg-3' });
         var recordedAudios = document.getElementById("recordedAudio_" + num)
         recordedAudios.src = URL.createObjectURL(blob);
         recordedAudios.controls = true;
@@ -17,7 +17,7 @@ function handlerFunction(stream,num) {
     rec2.ondataavailable = e => {
       audioChunks2.push(e.data);
       if (rec2.state == "inactive") {
-        let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+        let blob = new Blob(audioChunks2, { type: 'audio/mpeg-3' });
         var recordedAudios = document.getElementById("recordedAudio_" + num)
         recordedAudios.src = URL.createObjectURL(blob);
         recordedAudios.controls = true;
