@@ -1,35 +1,33 @@
-navigator.mediaDevices.getUserMedia({audio:true})
-.then(stream => {handlerFunction(stream)})
-      function handlerFunction(stream) {
-      rec = new MediaRecorder(stream);
-      rec.ondataavailable = e => {
-        audioChunks.push(e.data);
-        if (rec.state == "inactive"){
-          let blob = new Blob(audioChunks,{type:'audio/mpeg-3'});
-          recordedAudio.src = URL.createObjectURL(blob);
-          recordedAudio.controls=true;
-          recordedAudio.autoplay=true;
-          sendData(blob)
-        }
-      }
+function handlerFunction(stream) {
+  rec = new MediaRecorder(stream);
+  rec.ondataavailable = e => {
+    audioChunks.push(e.data);
+    if (rec.state == "inactive") {
+      let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+      recordedAudio.src = URL.createObjectURL(blob);
+      recordedAudio.controls = true;
+      recordedAudio.autoplay = true;
+      sendData(blob)
     }
-          function sendData(data) {}
+  }
+}
+function sendData(data) { }
 
-  record.onclick = e => {
-    console.log('I was clicked')
-    record.disabled = true;
-    record.style.backgroundColor = "blue"
-    stopRecord.disabled=false;
-    audioChunks = [];
-    rec.start();
-  }
-  stopRecord.onclick = e => {
-    console.log("I was clicked")
-    record.disabled = false;
-    stop.disabled=true;
-    record.style.backgroundColor = "red"
-    rec.stop();
-  }
+record.onclick = e => {
+  console.log('I was clicked')
+  record.disabled = true;
+  record.style.backgroundColor = "blue"
+  stopRecord.disabled = false;
+  audioChunks = [];
+  rec.start();
+}
+stopRecord.onclick = e => {
+  console.log("I was clicked")
+  record.disabled = false;
+  stop.disabled = true;
+  record.style.backgroundColor = "red"
+  rec.stop();
+}
 
 function getLocalStream() {
   const audioSource = audioInputSelect1.value;
@@ -45,11 +43,8 @@ function getLocalStream() {
     .getUserMedia(constraints)
     .then((stream) => {
       window.localAudioMic1.srcObject = stream; // B
-      if (window.audioRecord == true) {
-        var CurrentStream = new audioContext()
-        window.audioStream1 = CurrentStrean.createMediaStreamSource(stream);
-      }
       window.localAudioMic1.autoplay = true; // C
+      handlerFunction(stream)
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
@@ -58,11 +53,8 @@ function getLocalStream() {
     .getUserMedia(constraints1)
     .then((stream) => {
       window.localAudioMic2.srcObject = stream; // B
-      if (window.audioRecord == true) {
-        var CurrentStream = new audioContext()
-        window.audioStream2 = CurrentStrean.createMediaStreamSource(stream);
-      }
       window.localAudioMic2.autoplay = true; // C
+      handlerFunction(stream)
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
