@@ -1,9 +1,10 @@
-function handlerFunction(stream) {
+function handlerFunction(stream,num) {
   rec = new MediaRecorder(stream);
   rec.ondataavailable = e => {
     audioChunks.push(e.data);
     if (rec.state == "inactive") {
       let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+      var recordedAudio = document.getElementById("recordedAudio_" + num)
       recordedAudio.src = URL.createObjectURL(blob);
       recordedAudio.controls = true;
       recordedAudio.autoplay = true;
@@ -44,7 +45,7 @@ function getLocalStream() {
     .then((stream) => {
       window.localAudioMic1.srcObject = stream; // B
       window.localAudioMic1.autoplay = true; // C
-      handlerFunction(stream)
+      handlerFunction(stream,1)
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
@@ -54,7 +55,7 @@ function getLocalStream() {
     .then((stream) => {
       window.localAudioMic2.srcObject = stream; // B
       window.localAudioMic2.autoplay = true; // C
-      handlerFunction(stream)
+      handlerFunction(stream,2)
     })
     .catch((err) => {
       console.error(`you got an error: ${err}`);
