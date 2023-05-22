@@ -85,7 +85,7 @@ function changeValue1(value) {
   } else {
     window.localAudioMic1.volume = Number("0." + value)
   }
-  document.getElementById("vol_range1").classList.add('range_' + value);
+  document.getElementById("vol_range1").classList.toggle('range_' + value);
 }
 
 
@@ -96,7 +96,7 @@ function changeValue2(value) {
   } else {
     window.localAudioMic2.volume = Number("0." + value)
   }
-  document.getElementById("vol_range2").classList.add('range_' + value);
+  document.getElementById("vol_range2").classList.toggle('range_' + value);
 }
 
 function changeState1() {
