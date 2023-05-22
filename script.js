@@ -31,7 +31,6 @@ function handlerFunction(stream,num) {
 function sendData(data) { }
 
 record.onclick = e => {
-  console.log('I was clicked')
   record.disabled = true;
   record.style.backgroundColor = "blue"
   stopRecord.disabled = false;
@@ -41,7 +40,6 @@ record.onclick = e => {
   rec2.start();
 }
 stopRecord.onclick = e => {
-  console.log("I was clicked")
   record.disabled = false;
   stop.disabled = true;
   record.style.backgroundColor = "red"
