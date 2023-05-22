@@ -12,6 +12,8 @@ function getLocalStream() {
     .getUserMedia(constraints)
     .then((stream) => {
       window.localAudioMic1.srcObject = stream; // B
+      var CurrentStream = new audioContext()
+      window.audioStream1 = CurrentStrean.createMediaStreamSource( stream );
       window.localAudioMic1.autoplay = true; // C
     })
     .catch((err) => {
@@ -21,6 +23,8 @@ function getLocalStream() {
     .getUserMedia(constraints1)
     .then((stream) => {
       window.localAudioMic2.srcObject = stream; // B
+      var CurrentStream = new audioContext()
+      window.audioStream1 = CurrentStrean.createMediaStreamSource( stream );
       window.localAudioMic2.autoplay = true; // C
     })
     .catch((err) => {
