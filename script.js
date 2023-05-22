@@ -4,10 +4,10 @@ function handlerFunction(stream,num) {
     audioChunks.push(e.data);
     if (rec.state == "inactive") {
       let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
-      var recordedAudio = document.getElementById("recordedAudio_" + num)
-      recordedAudio.src = URL.createObjectURL(blob);
-      recordedAudio.controls = true;
-      recordedAudio.autoplay = true;
+      var recordedAudios = document.getElementById("recordedAudio_" + num)
+      recordedAudios.src = URL.createObjectURL(blob);
+      recordedAudios.controls = true;
+      recordedAudios.autoplay = true;
       sendData(blob)
     }
   }
