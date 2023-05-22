@@ -1,15 +1,19 @@
-async function dowloadprepare() {
-  window.audioStream1
-
+async function downloadprepare() {
+  var stream = { "1": window.audioStream1, "2": window.audioStream2 }
+  let blob = new Blob(stream, { type: 'audio/mpeg-3' });
+  recordedAudio.src = URL.createObjectURL(blob);
+  recordedAudio.controls = true;
+  recordedAudio.autoplay = true;
 }
+
 function getLocalStream() {
   const audioSource = audioInputSelect1.value;
   const constraints = {
-    audio: {deviceId: audioSource ? {exact: audioSource} : undefined},
+    audio: { deviceId: audioSource ? { exact: audioSource } : undefined },
   };
   const audioSource1 = audioInputSelect2.value;
   const constraints1 = {
-    audio: {deviceId: audioSource1 ? {exact: audioSource1} : undefined},
+    audio: { deviceId: audioSource1 ? { exact: audioSource1 } : undefined },
   };
 
   navigator.mediaDevices
@@ -18,7 +22,7 @@ function getLocalStream() {
       window.localAudioMic1.srcObject = stream; // B
       if (window.audioRecord == true) {
         var CurrentStream = new audioContext()
-        window.audioStream1 = CurrentStrean.createMediaStreamSource( stream );
+        window.audioStream1 = CurrentStrean.createMediaStreamSource(stream);
       }
       window.localAudioMic1.autoplay = true; // C
     })
@@ -31,7 +35,7 @@ function getLocalStream() {
       window.localAudioMic2.srcObject = stream; // B
       if (window.audioRecord == true) {
         var CurrentStream = new audioContext()
-        window.audioStream2 = CurrentStrean.createMediaStreamSource( stream );
+        window.audioStream2 = CurrentStrean.createMediaStreamSource(stream);
       }
       window.localAudioMic2.autoplay = true; // C
     })
@@ -44,7 +48,7 @@ function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
   const audioInputSelect1 = document.querySelector('select#audioSource1');
   const audioInputSelect2 = document.querySelector('select#audioSource2');
-  const selectors = [audioInputSelect1,audioInputSelect2];
+  const selectors = [audioInputSelect1, audioInputSelect2];
   const values = selectors.map(select => select.value);
   selectors.forEach(select => {
     while (select.firstChild) {
@@ -70,7 +74,7 @@ function gotDevices(deviceInfos) {
       audioInputSelect2.appendChild(option);
       option2.text = deviceInfo.label || `microphone ${audioInputSelect1.length + 1}`;
       audioInputSelect1.appendChild(option2);
-    } else {}
+    } else { }
   }
   selectors.forEach((select, selectorIndex) => {
     if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
