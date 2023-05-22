@@ -32,11 +32,14 @@
         height: 12.8px;
         cursor: pointer;
         box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-        background: #04FBE1;
+        background: #04fbe226;
         border-radius: 25px;
-        border: 0px solid #000101;
+        border: 1px solid #04FBE1;
     }
 
+    input[type=range]::-webkit-progress-bar {
+        background-color: #04FBE1;
+    }
     input[type=range]::-webkit-slider-thumb {
         box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
         border: 1px solid #04FBE1;
@@ -62,6 +65,8 @@
         background: #04FBE1;
         border-radius: 25px;
         border: 0px solid #000101;
+        background: #04fbe226;
+        border: 1px solid #04FBE1;
     }
 
     input[type=range]::-moz-range-thumb {
@@ -74,46 +79,7 @@
         cursor: pointer;
     }
 
-    input[type=range]::-ms-track {
-        width: 100%;
-        height: 12.8px;
-        cursor: pointer;
-        animate: 0.2s;
-        background: transparent;
-        border-color: transparent;
-        border-width: 39px 0;
-        color: transparent;
-    }
-
-    input[type=range]::-ms-fill-lower {
-        background: #04FBE1;
-        border: 0px solid #000101;
-        border-radius: 50px;
-        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    }
-
-    input[type=range]::-ms-fill-upper {
-        background: #04FBE1;
-        border: 0px solid #000101;
-        border-radius: 50px;
-        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    }
-
-    input[type=range]::-ms-thumb {
-        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-        border: 1px solid #04FBE1;
-        height: 60px;
-        width: 60px;
-        border-radius: 7px;
-        background: #47a49ba6;
-        cursor: pointer;
-    }
-
-    input[type=range]:focus::-ms-fill-lower {
-        background: #04FBE1;
-    }
-
-    input[type=range]:focus::-ms-fill-upper {
+    input[type="range"]::-moz-range-progress {
         background: #04FBE1;
     }
 </style>
