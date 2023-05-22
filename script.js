@@ -1,3 +1,7 @@
+async function dowloadprepare() {
+  window.audioStream1
+
+}
 function getLocalStream() {
   const audioSource = audioInputSelect1.value;
   const constraints = {
