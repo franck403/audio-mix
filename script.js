@@ -80,27 +80,25 @@ audioInputSelect2.onchange = getLocalStream;
 
 function changeValue1(value) {
   document.getElementById("vol_rangep1").innerHTML = value
-  var o = String(window.localAudioMic1.volume)
   if (value == 100) {
     window.localAudioMic1.volume = 1
   } else {
     window.localAudioMic1.volume = Number("0." + value)
   }
+  document.getElementById("vol_range1").className = '';
   document.getElementById("vol_range1").classList.add('range_' + value);
-  document.getElementById("vol_range1").classList.remove('range_' + o.replace("0.",""));
 }
 
 
 function changeValue2(value) {
   document.getElementById("vol_rangep2").innerHTML = value
-  var o = String(window.localAudioMic2.volume)
   if (value == 100) {
     window.localAudioMic2.volume = 1
   } else {
     window.localAudioMic2.volume = Number("0." + value)
   }
+  document.getElementById("vol_range2").className = '';
   document.getElementById("vol_range2").classList.add('range_' + value);
-  document.getElementById("vol_range2").classList.remove('range_' + o.replace("0.",""));
 }
 
 function changeState1() {
