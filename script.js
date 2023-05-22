@@ -35,7 +35,8 @@ record.onclick = e => {
   record.disabled = true;
   record.style.backgroundColor = "blue"
   stopRecord.disabled = false;
-  audioChunks = [];
+  audioChunks1 = [];
+  audioChunks2 = [];
   rec1.start();
   rec2.start();
 }
