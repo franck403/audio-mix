@@ -1,15 +1,31 @@
 function handlerFunction(stream,num) {
-  rec = new MediaRecorder(stream);
-  rec.ondataavailable = e => {
-    audioChunks.push(e.data);
-    if (rec.state == "inactive") {
-      let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
-      var recordedAudios = document.getElementById("recordedAudio_" + num)
-      recordedAudios.src = URL.createObjectURL(blob);
-      recordedAudios.controls = true;
-      recordedAudios.autoplay = true;
-      sendData(blob)
+  if (num == 1) {
+    rec1 = new MediaRecorder(stream);
+    rec1.ondataavailable = e => {
+      audioChunks1.push(e.data);
+      if (rec.state == "inactive") {
+        let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+        var recordedAudios = document.getElementById("recordedAudio_" + num)
+        recordedAudios.src = URL.createObjectURL(blob);
+        recordedAudios.controls = true;
+        recordedAudios.autoplay = true;
+        sendData(blob)
+      }
     }
+  } else if (num == 2) {
+    rec2 = new MediaRecorder(stream);
+    rec2.ondataavailable = e => {
+      audioChunks2.push(e.data);
+      if (rec.state == "inactive") {
+        let blob = new Blob(audioChunks, { type: 'audio/mpeg-3' });
+        var recordedAudios = document.getElementById("recordedAudio_" + num)
+        recordedAudios.src = URL.createObjectURL(blob);
+        recordedAudios.controls = true;
+        recordedAudios.autoplay = true;
+        sendData(blob)
+      }
+    }
+
   }
 }
 function sendData(data) { }
@@ -20,14 +36,16 @@ record.onclick = e => {
   record.style.backgroundColor = "blue"
   stopRecord.disabled = false;
   audioChunks = [];
-  rec.start();
+  rec1.start();
+  rec2.start();
 }
 stopRecord.onclick = e => {
   console.log("I was clicked")
   record.disabled = false;
   stop.disabled = true;
   record.style.backgroundColor = "red"
-  rec.stop();
+  rec2.stop();
+  rec1.stop();
 }
 
 function getLocalStream() {
